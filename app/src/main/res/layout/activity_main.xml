@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/TabLayoutMainActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/secondary"
+        app:tabTextColor="@color/black"
+        app:tabSelectedTextColor="@color/white">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/allIdeasTabItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="All ideas"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/CompIdeasTabItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Completed ideas"/>
+
+
+    </com.google.android.material.tabs.TabLayout>
+
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/viewpagerMainActivity"/>
+
+
+<!--    <RelativeLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--&gt;-->
+<!--    <ListView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:id="@+id/List_VIew"-->
+<!--        android:background="@color/white"-->
+<!--        />-->
+
+<!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--            android:id="@+id/addIdea"-->
+<!--            android:backgroundTint="@color/white"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:fabSize="normal"-->
+<!--            android:layout_alignParentRight="true"-->
+<!--            android:src="@drawable/white_add_button"-->
+<!--            android:layout_margin="15dp"-->
+<!--            android:layout_alignParentBottom="true"/>-->
+<!--    </RelativeLayout>-->
+
+</LinearLayout>

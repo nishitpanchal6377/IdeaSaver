@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="List_VIew" type="id" />
+    <item name="addIdea" type="id" />
+</resources>

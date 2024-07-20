@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    android:id="@+id/scrollView"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:stretchColumns="1">
+
+
+
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@drawable/gradientbackground"
+            tools:context=".AddIdeaActivity">
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="30dp"
+                >
+
+                <TextView
+                    android:id="@+id/hitextview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hi!"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:textSize="50dp" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Welcome"
+                    android:textStyle="bold"
+                    android:textSize="50dp"
+                    android:layout_below="@id/hitextview"
+                    android:layout_marginTop="-10dp"
+                    android:textColor="@color/white"
+                    android:id="@+id/welcometext"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Let's start working on your idea!"
+                    android:layout_below="@id/welcometext"
+                    android:layout_marginTop="-5dp"
+                    android:textColor="@color/white"
+                    android:paddingLeft="2dp"
+                    />
+
+
+            </RelativeLayout>
+
+
+            <EditText
+                android:background="@drawable/roundborderedittext"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:padding="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Idea Name"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:textColorHint="@color/white"
+                android:id="@+id/ideanameaddactvity"
+                />
+
+
+
+            <EditText
+                android:background="@drawable/borderedittext"
+                android:hint="Idea Description..."
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                android:textColorHint="@color/white"
+                android:gravity="start"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:lines="8"
+                android:maxLines="20"
+                android:minLines="15"
+                android:scrollbars="vertical"
+                android:layout_margin="30dp"
+                android:padding="5dp"
+                android:id="@+id/ideadescriptionaddactvity"
+                />
+
+
+
+            <LinearLayout
+                android:padding="5dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="100"
+                android:background="@drawable/roundborderedittext"
+                android:orientation="horizontal">
+
+
+                <EditText
+                    android:layout_weight="85"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Idea SubStep"
+                    android:layout_gravity="center"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:id="@+id/ideasubstepaddactvity"
+                    />
+
+                <ImageView
+                    android:layout_gravity="center"
+                    android:layout_weight="15"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_add_circle_outline_24"
+                    android:id="@+id/ideasubstepbuttonaddactvity"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:orientation="vertical"
+                >
+
+
+                <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/substeplistview"/>
+
+
+
+
+
+            </LinearLayout>
+
+
+            <Switch
+                android:id="@+id/SwitchforReminderEditActivity"
+                android:layout_width="match_parent"
+                android:textColor="@color/white"
+                android:layout_height="wrap_content"
+                android:text="Remind Me"
+                android:layout_gravity="center"
+                android:padding="5dp"
+                android:background="@drawable/roundborderedittext"
+                android:layout_margin="30dp"/>
+
+
+
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+
+
+                <Button
+                    android:id="@+id/deleteideabuttoneaddactvity"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_weight="33.3"
+                    android:layout_height="52dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="15dp"
+                    android:text="Delete"
+                    android:textSize="12sp"
+                    android:backgroundTint="#3C7066"/>
+                <Button
+                    android:textSize="12sp"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_weight="33.3"
+                    android:layout_height="52dp"
+                    android:layout_gravity="center"
+                    android:id="@+id/completeideabuttoneaddactvity"
+                    android:layout_margin="15dp"
+                    android:text="Done"
+                    android:backgroundTint="#3C7066"/>
+
+
+
+                <Button
+                    android:textSize="12sp"
+                    android:layout_gravity="center"
+                    android:id="@+id/addideabuttoneaddactvity"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_weight="33.3"
+                    android:layout_height="52dp"
+                    android:layout_margin="15dp"
+                    android:text="Update"
+                    android:backgroundTint="#3C7066"/>
+
+
+
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+
+    </TableLayout>
+</ScrollView>
+
