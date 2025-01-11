@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
 //            this.getSupportActionBar().hide();
 //        }
 
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.secondary)));
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.complimantary)));
 
 
         //change colour of Status bar
@@ -157,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
             Window window = this.getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            window.setStatusBarColor(this.getResources().getColor(R.color.secondary));
+            window.setStatusBarColor(this.getResources().getColor(R.color.complimantary));
         }
 
 

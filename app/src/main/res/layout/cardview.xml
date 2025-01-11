@@ -18,7 +18,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/gradientbackground"
+            android:background="@color/lightblue"
             android:orientation="vertical"
             android:padding="16dp">
 
@@ -29,16 +29,19 @@
                 android:weightSum="100"
                 android:layout_height="wrap_content">
             <TextView
+                android:fontFamily="@font/segoe_ui_bold"
+                android:maxLines="1"
                 android:layout_gravity="center"
                 android:id="@+id/title"
                 android:layout_width="0dp"
                 android:layout_weight="80"
                 android:layout_height="wrap_content"
                 android:text="Title"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
             <TextView
+                android:fontFamily="@font/segoe_ui_regular"
                 android:textSize="10sp"
                 android:gravity="center"
                 android:layout_gravity="end"
@@ -47,7 +50,7 @@
                 android:layout_weight="20"
                 android:layout_height="wrap_content"
                 android:text="11/15/2023"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                  />
 
             </LinearLayout>
@@ -60,13 +63,14 @@
                 android:layout_marginBottom="16dp"/>
 
             <TextView
+                android:fontFamily="@font/seg_ui_semibold"
                 android:maxLines="2"
                 android:minLines="2"
                 android:id="@+id/description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Description"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="12sp"
                 android:lineSpacingMultiplier="1.2"
                 android:layout_marginBottom="16dp"/>

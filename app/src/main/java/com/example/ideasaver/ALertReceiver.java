@@ -6,19 +6,18 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.provider.Settings;
 import android.widget.Toast;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
+import androidx.core.content.ContextCompat;
 
 public class ALertReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-
-
-
 
 
         Intent i = new Intent(context,MainActivity.class);
@@ -26,8 +25,10 @@ public class ALertReceiver extends BroadcastReceiver {
         PendingIntent pendingIntent = PendingIntent.getActivity(context,0,i,PendingIntent.FLAG_IMMUTABLE);
 
 
+//        ContextCompat.startForegroundService(context, intent);
+
+
         MediaPlayer mediaPlayer = MediaPlayer.create(context, Settings.System.DEFAULT_NOTIFICATION_URI);
-//        mediaPlayer.setLooping(true);
         mediaPlayer.start();
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "foxandroid")

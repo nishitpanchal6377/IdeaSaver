@@ -1,237 +1,504 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/scrollView"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:stretchColumns="1">
 
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
 
 
         <LinearLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:background="@drawable/gradientbackground"
-            tools:context=".AddIdeaActivity">
+            android:background="@color/complimantary">
 
 
             <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_marginStart="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
                 >
 
-                <TextView
-                    android:id="@+id/hitextview"
-                    android:layout_width="wrap_content"
+                <ImageView
+                    android:id="@+id/back_main_activity_ios"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/ic_back_ios"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="12dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Hi!"
-                    android:textStyle="bold"
-                    android:textColor="@color/white"
-                    android:textSize="50dp" />
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Welcome"
-                    android:textStyle="bold"
-                    android:textSize="50dp"
-                    android:layout_below="@id/hitextview"
-                    android:layout_marginTop="-10dp"
-                    android:textColor="@color/white"
-                    android:id="@+id/welcometext"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Let's start working on your idea!"
-                    android:layout_below="@id/welcometext"
-                    android:layout_marginTop="-5dp"
-                    android:textColor="@color/white"
-                    android:paddingLeft="2dp"
-                    />
-
-
+                    android:orientation="vertical"
+                    android:layout_marginLeft="48dp"
+                    android:layout_marginRight="48dp"
+                    android:layout_centerVertical="true">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="36dp"
+                        android:text="Welcome Back"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="@font/segoe_ui_bold"
+                        android:textColor="@color/lightblue"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18dp"
+                        android:text="New Idea or Update? Save It Now!"
+                        android:fontFamily="@font/seg_ui_semibold"
+                        android:textColor="@color/white"/>
+                </LinearLayout>
             </RelativeLayout>
 
 
-            <EditText
-                android:background="@drawable/roundborderedittext"
-                android:textStyle="bold"
-                android:textColor="@color/white"
-                android:padding="5dp"
+
+            <RelativeLayout
+                android:elevation="36dp"
+                android:background="@drawable/roundedborderaddidea"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Idea Name"
-                android:layout_marginTop="30dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"
-                android:textColorHint="@color/white"
-                android:id="@+id/ideanameaddactvity"
-                />
-
-
-
-            <EditText
-                android:background="@drawable/borderedittext"
-                android:hint="Idea Description..."
-                android:textColor="@color/white"
-                android:textSize="10sp"
-                android:textColorHint="@color/white"
-                android:gravity="start"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textMultiLine"
-                android:lines="8"
-                android:maxLines="20"
-                android:minLines="15"
-                android:scrollbars="vertical"
-                android:layout_margin="30dp"
-                android:padding="5dp"
-                android:id="@+id/ideadescriptionaddactvity"
-                />
-
-
-
-            <LinearLayout
-                android:padding="5dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="100"
-                android:background="@drawable/roundborderedittext"
-                android:orientation="horizontal">
-
-
-                <EditText
-                    android:layout_weight="85"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:hint="Idea SubStep"
-                    android:layout_gravity="center"
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/white"
-                    android:id="@+id/ideasubstepaddactvity"
-                    />
-
-                <ImageView
-                    android:layout_gravity="center"
-                    android:layout_weight="15"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/baseline_add_circle_outline_24"
-                    android:id="@+id/ideasubstepbuttonaddactvity"
-                    />
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"
-                android:orientation="vertical"
                 >
 
 
-                <ListView
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/substeplistview"/>
+                    android:orientation="vertical">
+
+
+
+                    <LinearLayout
+                        android:paddingLeft="26dp"
+                        android:paddingRight="26dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginRight="24dp"
+                        android:background="@drawable/edittextroundborder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:textSize="12sp"
+                            android:id="@+id/ideanameaddactvity"
+                            android:layout_width="match_parent"
+                            android:layout_height="52dp"
+                            android:drawableEnd="@drawable/baseline_lightbulb_outline_24"
+                            android:fontFamily="@font/segoe_ui_regular"
+                            android:hint="Idea Name"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/black" />
+
+                    </LinearLayout>
+
+
+                    <EditText
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginRight="24dp"
+                        android:id="@+id/ideadescriptionaddactvity"
+                        android:background="@drawable/edittextroundborder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/segoe_ui_regular"
+                        android:gravity="start"
+                        android:hint="Idea Description..."
+                        android:inputType="textMultiLine"
+                        android:lines="8"
+                        android:maxLines="15"
+                        android:minLines="10"
+                        android:paddingLeft="26dp"
+                        android:paddingTop="13dp"
+                        android:paddingRight="26dp"
+                        android:scrollbars="vertical"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:textSize="12sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginRight="24dp"
+                        android:background="@drawable/edittextroundborder"
+                        android:orientation="horizontal"
+                        android:paddingLeft="26dp"
+                        android:paddingRight="26dp"
+                        android:weightSum="100">
+
+
+                        <EditText
+                            android:textSize="12sp"
+                            android:id="@+id/ideasubstepaddactvity"
+                            android:layout_width="0dp"
+                            android:layout_height="52dp"
+                            android:layout_weight="90"
+                            android:fontFamily="@font/segoe_ui_regular"
+                            android:hint="Idea Substeps"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/black" />
+
+                        <ImageView
+                            android:paddingLeft="5dp"
+                            android:id="@+id/ideasubstepbuttonaddactvity"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="10"
+                            android:src="@drawable/baseline_add_circle_24" />
+
+                    </LinearLayout>
+
+
+                    <ListView
+                        android:background="@drawable/borderedittext"
+                        android:paddingLeft="26dp"
+                        android:paddingRight="26dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginRight="24dp"
+                        android:id="@+id/substeplistview"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp" />
+
+
+                    <Switch
+                        android:textSize="12sp"
+                        android:id="@+id/SwitchforReminderEditActivity"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginRight="24dp"
+                        android:background="@drawable/edittextroundborder"
+                        android:paddingRight="13dp"
+                        android:paddingLeft="26dp"
+                        android:text="Remind Me"
+                        android:textColor="@color/black"
+                        tools:ignore="UseSwitchCompatOrMaterialXml" />
 
 
 
 
 
-            </LinearLayout>
+                    <LinearLayout
+                        android:layout_margin="40dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
 
 
-            <Switch
-                android:id="@+id/SwitchforReminderEditActivity"
-                android:layout_width="match_parent"
-                android:textColor="@color/white"
-                android:layout_height="wrap_content"
-                android:text="Remind Me"
-                android:layout_gravity="center"
-                android:padding="5dp"
-                android:background="@drawable/roundborderedittext"
-                android:layout_margin="30dp"/>
+                        <Button
+                            android:textSize="12sp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_margin="5dp"
+                            android:fontFamily="@font/segoe_ui_bold"
+                            android:id="@+id/deleteideabuttoneaddactvity"
+                            android:background="@drawable/edittextroundborder"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="Delete"
+                            android:layout_marginBottom="40dp"
+                            android:textColor="@color/white" />
+
+                        <Button
+                            android:textSize="12sp"
+                            android:layout_margin="5dp"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="@font/segoe_ui_bold"
+                            android:id="@+id/completeideabuttoneaddactvity"
+                            android:background="@drawable/edittextroundborder"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="Done"
+                            android:layout_marginBottom="40dp"
+                            android:textColor="@color/white" />
+
+                        <Button
+                            android:textSize="12sp"
+                            android:layout_margin="5dp"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="@font/segoe_ui_bold"
+                            android:id="@+id/addideabuttoneaddactvity"
+                            android:background="@drawable/edittextroundborder"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="Update"
+                            android:layout_marginBottom="40dp"
+                            android:textColor="@color/white" />
 
 
 
-            <LinearLayout
-                android:layout_marginTop="15dp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:weightSum="100">
-
-
-
-                <Button
-                    android:id="@+id/deleteideabuttoneaddactvity"
-                    android:textColor="@color/white"
-                    android:layout_width="0dp"
-                    android:layout_weight="33.3"
-                    android:layout_height="52dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="15dp"
-                    android:text="Delete"
-                    android:textSize="12sp"
-                    android:backgroundTint="#3C7066"/>
-                <Button
-                    android:textSize="12sp"
-                    android:textColor="@color/white"
-                    android:layout_width="0dp"
-                    android:layout_weight="33.3"
-                    android:layout_height="52dp"
-                    android:layout_gravity="center"
-                    android:id="@+id/completeideabuttoneaddactvity"
-                    android:layout_margin="15dp"
-                    android:text="Done"
-                    android:backgroundTint="#3C7066"/>
-
-
-
-                <Button
-                    android:textSize="12sp"
-                    android:layout_gravity="center"
-                    android:id="@+id/addideabuttoneaddactvity"
-                    android:textColor="@color/white"
-                    android:layout_width="0dp"
-                    android:layout_weight="33.3"
-                    android:layout_height="52dp"
-                    android:layout_margin="15dp"
-                    android:text="Update"
-                    android:backgroundTint="#3C7066"/>
+                    </LinearLayout>
 
 
 
 
-            </LinearLayout>
 
 
-
-
+                </LinearLayout>
+            </RelativeLayout>
         </LinearLayout>
-
-
-    </TableLayout>
+    </LinearLayout>
 </ScrollView>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--    <TableLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:stretchColumns="1">-->
+
+
+
+<!--        <LinearLayout-->
+<!--            xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--            xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--            xmlns:tools="http://schemas.android.com/tools"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="vertical"-->
+<!--            android:background="@drawable/gradientbackground"-->
+<!--            tools:context=".AddIdeaActivity">-->
+
+
+<!--            <RelativeLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="30dp"-->
+<!--                android:layout_marginStart="30dp"-->
+<!--                >-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/hitextview"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Hi!"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textSize="50dp" />-->
+
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Welcome"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:textSize="50dp"-->
+<!--                    android:layout_below="@id/hitextview"-->
+<!--                    android:layout_marginTop="-10dp"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:id="@+id/welcometext"-->
+<!--                    />-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Let's start working on your idea!"-->
+<!--                    android:layout_below="@id/welcometext"-->
+<!--                    android:layout_marginTop="-5dp"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:paddingLeft="2dp"-->
+<!--                    />-->
+
+
+<!--            </RelativeLayout>-->
+
+
+<!--            <EditText-->
+<!--                android:background="@drawable/roundborderedittext"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:padding="5dp"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:hint="Idea Name"-->
+<!--                android:layout_marginTop="30dp"-->
+<!--                android:layout_marginStart="30dp"-->
+<!--                android:layout_marginEnd="30dp"-->
+<!--                android:textColorHint="@color/white"-->
+<!--                android:id="@+id/ideanameaddactvity"-->
+<!--                />-->
+
+
+
+<!--            <EditText-->
+<!--                android:background="@drawable/borderedittext"-->
+<!--                android:hint="Idea Description..."-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="10sp"-->
+<!--                android:textColorHint="@color/white"-->
+<!--                android:gravity="start"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:inputType="textMultiLine"-->
+<!--                android:lines="8"-->
+<!--                android:maxLines="20"-->
+<!--                android:minLines="15"-->
+<!--                android:scrollbars="vertical"-->
+<!--                android:layout_margin="30dp"-->
+<!--                android:padding="5dp"-->
+<!--                android:id="@+id/ideadescriptionaddactvity"-->
+<!--                />-->
+
+
+
+<!--            <LinearLayout-->
+<!--                android:padding="5dp"-->
+<!--                android:layout_marginStart="30dp"-->
+<!--                android:layout_marginEnd="30dp"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:weightSum="100"-->
+<!--                android:background="@drawable/roundborderedittext"-->
+<!--                android:orientation="horizontal">-->
+
+
+<!--                <EditText-->
+<!--                    android:layout_weight="85"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:hint="Idea SubStep"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textColorHint="@color/white"-->
+<!--                    android:id="@+id/ideasubstepaddactvity"-->
+<!--                    />-->
+
+<!--                <ImageView-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_weight="15"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:src="@drawable/baseline_add_circle_outline_24"-->
+<!--                    android:id="@+id/ideasubstepbuttonaddactvity"-->
+<!--                    />-->
+
+<!--            </LinearLayout>-->
+
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="100dp"-->
+<!--                android:layout_marginTop="5dp"-->
+<!--                android:layout_marginStart="30dp"-->
+<!--                android:layout_marginEnd="30dp"-->
+<!--                android:orientation="vertical"-->
+<!--                >-->
+
+
+<!--                <ListView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:id="@+id/substeplistview"/>-->
+
+
+
+
+
+<!--            </LinearLayout>-->
+
+
+<!--            <Switch-->
+<!--                android:id="@+id/SwitchforReminderEditActivity"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Remind Me"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:padding="5dp"-->
+<!--                android:background="@drawable/roundborderedittext"-->
+<!--                android:layout_margin="30dp"/>-->
+
+
+
+<!--            <LinearLayout-->
+<!--                android:layout_marginTop="15dp"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:weightSum="100">-->
+
+
+
+<!--                <Button-->
+<!--                    android:id="@+id/deleteideabuttoneaddactvity"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_weight="33.3"-->
+<!--                    android:layout_height="52dp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_margin="15dp"-->
+<!--                    android:text="Delete"-->
+<!--                    android:textSize="12sp"-->
+<!--                    android:backgroundTint="#3C7066"/>-->
+<!--                <Button-->
+<!--                    android:textSize="12sp"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_weight="33.3"-->
+<!--                    android:layout_height="52dp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:id="@+id/completeideabuttoneaddactvity"-->
+<!--                    android:layout_margin="15dp"-->
+<!--                    android:text="Done"-->
+<!--                    android:backgroundTint="#3C7066"/>-->
+
+
+
+<!--                <Button-->
+<!--                    android:textSize="12sp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:id="@+id/addideabuttoneaddactvity"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_weight="33.3"-->
+<!--                    android:layout_height="52dp"-->
+<!--                    android:layout_margin="15dp"-->
+<!--                    android:text="Update"-->
+<!--                    android:backgroundTint="#3C7066"/>-->
+
+
+
+
+<!--            </LinearLayout>-->
+
+
+
+
+<!--        </LinearLayout>-->
+
+
+<!--    </TableLayout>-->
+<!--</ScrollView>-->
 

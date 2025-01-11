@@ -47,6 +47,7 @@ public class EditIdeaActivity extends AppCompatActivity {
     Button SaveIdea;
     Button DeleteIDea;
     Button CompleteIdea;
+    ImageView get_back_to_main_activity_ios;
 
     ArrayList<IdeaDetails> ideaDetails =new ArrayList<>();
     ArrayList<String> substeplist;
@@ -107,22 +108,22 @@ public class EditIdeaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_idea);
         createNotificationChannel();
+        getSupportActionBar().hide();
         AlarmManager alarmManager=(AlarmManager)getSystemService(ALARM_SERVICE);
 
 
 
-
-        getSupportActionBar().setTitle("Edit Idea");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.secondary)));
+        //23/12/2024
+//        getSupportActionBar().setTitle("Edit Idea");
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.complimantary)));
 
 
         if (Build.VERSION.SDK_INT >= 21) {
             Window window = this.getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            window.setStatusBarColor(this.getResources().getColor(R.color.secondary));
+            window.setStatusBarColor(this.getResources().getColor(R.color.complimantary));
         }
 
 
@@ -137,12 +138,8 @@ public class EditIdeaActivity extends AppCompatActivity {
         DeleteIDea=findViewById(R.id.deleteideabuttoneaddactvity);
         ScrollView scrollView=findViewById(R.id.scrollView);
         CompleteIdea=findViewById(R.id.completeideabuttoneaddactvity);
+        get_back_to_main_activity_ios=findViewById(R.id.back_main_activity_ios);
         Switch ReminderSwitch=findViewById(R.id.SwitchforReminderEditActivity);
-
-
-
-
-
 
 
 
@@ -154,6 +151,14 @@ public class EditIdeaActivity extends AppCompatActivity {
 
         Intent intent=getIntent();
         int Arraylistid=intent.getIntExtra("Arraylist_Id",0);
+
+        get_back_to_main_activity_ios.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(EditIdeaActivity.this,MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
 
@@ -258,9 +263,13 @@ public class EditIdeaActivity extends AppCompatActivity {
                 if(SwitchIsOn) {
                     if (calendar != null) {
 //                    alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
-                        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
-
 //                        alarmManager.setExact(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),pendingIntent);
+
+
+                        //23/12/2024
+//                        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
+                           alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),pendingIntent);
+
                         databaseHelper.ideaDetailsDAO().updateIdea(new IdeaDetails(id,ideaname,ideadescription,Date,ideaDetails.get(ArraylistNumber).getIsCompleted(),idforAlarm,AddIdeaActivity.REMINDER_ON,substeplist));
                     }
                 }else{

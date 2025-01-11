@@ -1,62 +1,38 @@
 package com.example.ideasaver;
 
-import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
+//import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlarmManager;
-import android.app.DatePickerDialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
+import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.TimePicker;
 import android.widget.Toast;
-
-import com.example.ideasaver.databinding.ActivityMainBinding;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.LoadAdError;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
-import com.google.android.gms.ads.interstitial.InterstitialAd;
-import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.google.android.material.timepicker.MaterialTimePicker;
 import com.google.android.material.timepicker.TimeFormat;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.TimeZone;
@@ -67,6 +43,7 @@ public class AddIdeaActivity extends AppCompatActivity {
     EditText IdeaDescription;
     EditText IdeaSubsteps;
     ImageView addSubstep;
+    ImageView get_back_to_main_activity_ios;
     Button SaveIdea;
     ArrayList<Customdata> Customdatalist;
     ArrayList<String> substeplist;
@@ -77,8 +54,6 @@ public class AddIdeaActivity extends AppCompatActivity {
 
     Boolean SwitchIsOn=false;
 
-
-    InterstitialAd mInterstitialAd;
 
 
     public static final int REMINDER_ON=1;
@@ -139,41 +114,30 @@ public class AddIdeaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_idea);
         createNotificationChannel();
-        getSupportActionBar().setTitle("Add Idea");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().hide();
+        //18/12/2024
+//        getSupportActionBar().setTitle("Add Idea");
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         AlarmManager alarmManager=(AlarmManager)getSystemService(ALARM_SERVICE);
 
 
-        MobileAds.initialize(AddIdeaActivity.this, new OnInitializationCompleteListener() {
+        get_back_to_main_activity_ios=findViewById(R.id.back_main_activity_ios);
+        get_back_to_main_activity_ios.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            public void onClick(View view) {
+                Intent intent=new Intent(AddIdeaActivity.this,MainActivity.class);
+                startActivity(intent);
             }
         });
 
 
 
 
-        AdRequest adRequest = new AdRequest.Builder().build();
 
-
-
-        InterstitialAd.load(AddIdeaActivity.this,"ca-app-pub-1486678075354721/8732466484", adRequest,
-                new InterstitialAdLoadCallback() {
-                    @Override
-                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
-                        // The mInterstitialAd reference will be null until
-                        // an ad is loaded.
-                        mInterstitialAd = interstitialAd;
-                        Toast.makeText(AddIdeaActivity.this, "loaded", Toast.LENGTH_SHORT).show();
-                    }
-
-                    @Override
-                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-                        // Handle the error
-                        mInterstitialAd = null;
-                        Toast.makeText(AddIdeaActivity.this, "failed", Toast.LENGTH_SHORT).show();
-                    }
-                });
+        //To request Permission for notification of mobiles having android version >13 or sdk >33
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.TIRAMISU){
+            requestPermissions(new String[]{Manifest.permission.POST_NOTIFICATIONS},99);
+        }
 
 
 
@@ -185,15 +149,14 @@ public class AddIdeaActivity extends AppCompatActivity {
 
 
 
-
-
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.secondary)));
+//18/12/2024
+//        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.complimantary)));
 
         if (Build.VERSION.SDK_INT >= 21) {
             Window window = this.getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            window.setStatusBarColor(this.getResources().getColor(R.color.secondary));
+            window.setStatusBarColor(this.getResources().getColor(R.color.complimantary));
         }
 
 
@@ -256,15 +219,6 @@ public class AddIdeaActivity extends AppCompatActivity {
         addSubstep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                if (mInterstitialAd != null) {
-                    mInterstitialAd.show(AddIdeaActivity.this);
-                } else {
-                }
-
-
-
-
                 substeplist.add(numberOfSteps+". "+IdeaSubsteps.getText().toString());
                 myAdapter2.notifyDataSetChanged();
                 IdeaSubsteps.getText().clear();
@@ -287,8 +241,14 @@ public class AddIdeaActivity extends AppCompatActivity {
                 if(SwitchIsOn) {
                     if (calendar != null) {
 //                    alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
-                        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
 //                        alarmManager.setExact(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),pendingIntent);
+
+
+                        //23/12/2024
+//                        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
+
+                        alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),pendingIntent);
+
 
                     }
                 }
@@ -422,7 +382,6 @@ public class AddIdeaActivity extends AppCompatActivity {
             channel.setDescription(description);
             NotificationManager notificationManager = getSystemService(NotificationManager.class);
             notificationManager.createNotificationChannel(channel);
-
         }
 
 
@@ -434,20 +393,6 @@ public class AddIdeaActivity extends AppCompatActivity {
 
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

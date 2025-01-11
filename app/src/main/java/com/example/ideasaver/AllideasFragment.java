@@ -1,7 +1,10 @@
 package com.example.ideasaver;
 
+import android.app.Application;
 import android.content.Intent;
+import android.content.UriMatcher;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -59,7 +62,22 @@ public class AllideasFragment extends Fragment {
         item3.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(@NonNull MenuItem menuItem) {
-                Toast.makeText(getContext(), "Work in Progress", Toast.LENGTH_SHORT).show();
+
+
+
+                /*Create an ACTION_SEND Intent*/
+                Intent intent = new Intent(android.content.Intent.ACTION_SEND);
+                /*This will be the actual content you wish you share.*/
+                String shareBody = "https://linktr.ee/mynewapp";
+                /*The type of the content is text, obviously.*/
+                intent.setType("text/plain");
+                /*Applying information Subject and Body.*/
+                intent.putExtra(android.content.Intent.EXTRA_SUBJECT, "share app");
+                intent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+                /*Fire!*/
+                startActivity(Intent.createChooser(intent, "share"));
+
+
                 return false;
             }
         });
@@ -67,9 +85,10 @@ public class AllideasFragment extends Fragment {
         item2.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(@NonNull MenuItem menuItem) {
+
+                Intent intent=new Intent(Intent.ACTION_VIEW,Uri.parse("https://linktr.ee/ideasaverreview"));
+                startActivity(intent);
                 Toast.makeText(getContext(), "Rate Us", Toast.LENGTH_SHORT).show();
-//                Intent intent=new Intent(getContext(),AddIdeaActivity.class);
-//                startActivity(intent);
                 return false;
             }
         });
